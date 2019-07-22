@@ -1,7 +1,4 @@
 # TrendOl
-This project designed to visualize ASP.NET MVC and MSSQL knowledge
+This project is designed to visualize ASP.NET MVC and MSSQL knowledge
 
-- [x] Requirement Engineering (I will be the owner and the developer of the project.)
-- [ ] Make a Todo list
-- [ ] Drawing Diagrams
-- [ ] ...
+You can follow Wiki Page to see design details about the project
