@@ -1,0 +1,17 @@
+C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.BusinessLayer\bin\Debug\TrendOl.BusinessLayer.dll.config
+C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.BusinessLayer\bin\Debug\TrendOl.BusinessLayer.dll
+C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.BusinessLayer\bin\Debug\TrendOl.BusinessLayer.pdb
+C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.BusinessLayer\bin\Debug\EntityFramework.dll
+C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.BusinessLayer\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.BusinessLayer\bin\Debug\TrendOl.DataAccessLayer.dll
+C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.BusinessLayer\bin\Debug\TrendOl.Entities.dll
+C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.BusinessLayer\bin\Debug\TrendOl.DataAccessLayer.pdb
+C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.BusinessLayer\bin\Debug\TrendOl.DataAccessLayer.dll.config
+C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.BusinessLayer\bin\Debug\TrendOl.Entities.pdb
+C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.BusinessLayer\bin\Debug\EntityFramework.xml
+C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.BusinessLayer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.BusinessLayer\obj\Debug\TrendOl.BusinessLayer.csprojAssemblyReference.cache
+C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.BusinessLayer\obj\Debug\TrendOl.BusinessLayer.csproj.CoreCompileInputs.cache
+C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.BusinessLayer\obj\Debug\TrendOl.BusinessLayer.csproj.CopyComplete
+C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.BusinessLayer\obj\Debug\TrendOl.BusinessLayer.dll
+C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.BusinessLayer\obj\Debug\TrendOl.BusinessLayer.pdb

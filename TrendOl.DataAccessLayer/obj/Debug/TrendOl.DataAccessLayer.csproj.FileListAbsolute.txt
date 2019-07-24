@@ -1,0 +1,16 @@
+C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.DataAccessLayer\bin\Debug\TrendOl.DataAccessLayer.dll.config
+C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.DataAccessLayer\bin\Debug\TrendOl.DataAccessLayer.dll
+C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.DataAccessLayer\bin\Debug\TrendOl.DataAccessLayer.pdb
+C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.DataAccessLayer\bin\Debug\EntityFramework.dll
+C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.DataAccessLayer\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.DataAccessLayer\bin\Debug\FakeData.dll
+C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.DataAccessLayer\bin\Debug\TrendOl.Entities.dll
+C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.DataAccessLayer\bin\Debug\TrendOl.Entities.pdb
+C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.DataAccessLayer\bin\Debug\EntityFramework.xml
+C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.DataAccessLayer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.DataAccessLayer\bin\Debug\FakeData.pdb
+C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.DataAccessLayer\obj\Debug\TrendOl.DataAccessLayer.csprojAssemblyReference.cache
+C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.DataAccessLayer\obj\Debug\TrendOl.DataAccessLayer.csproj.CoreCompileInputs.cache
+C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.DataAccessLayer\obj\Debug\TrendOl.DataAccessLayer.csproj.CopyComplete
+C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.DataAccessLayer\obj\Debug\TrendOl.DataAccessLayer.dll
+C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.DataAccessLayer\obj\Debug\TrendOl.DataAccessLayer.pdb
