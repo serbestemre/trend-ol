@@ -20,8 +20,8 @@ namespace TrendOl.Entities
 		public double TotalPrice { get; set; }
 		public double TotalVat { get; set; }
 
-		public virtual MyUser SaleOwner { get; set; }
-		public virtual Product Product { get; set; }
+		[Required]
+		public virtual MyUser Customer { get; set; }
 		public virtual List<Sale_Details> SaleDetails { get; set; }
 
 	}

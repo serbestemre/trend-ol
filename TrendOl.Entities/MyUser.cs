@@ -25,16 +25,14 @@ namespace TrendOl.Entities
 		public string Email { get; set; }
 		public string UserImage { get; set; }
 
-
-		public bool IsAdmin { get; set; }
+		public bool IsSuperUser { get; set; }
 		public bool HasBrand { get; set; }
 		public bool IsActive { get; set; }
 		public Guid ActivateGuid { get; set; }
-
-		public virtual Brand Brand { get; set; }
-		public virtual Wishlist Wishlist { get; set; }
 		public virtual List<Comment> Comments { get; set; }
-		public virtual List<Rating> Ratings { get; set; }
+		
+		//public virtual Wishlist Wishlist { get; set; }
+		public virtual List<Like> Likes { get; set; }
 		public virtual List<Sale> Sales { get; set; }
 
 	}

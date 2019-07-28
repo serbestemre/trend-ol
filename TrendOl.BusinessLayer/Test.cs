@@ -11,7 +11,8 @@ namespace TrendOl.BusinessLayer
 		public Test()
 		{
 			DataAccessLayer.DatabaseContext db = new DataAccessLayer.DatabaseContext();
-			db.Database.CreateIfNotExists();
+			//db.Database.CreateIfNotExists();
+			db.MyUsers.ToList();
 		}
 	}
 }

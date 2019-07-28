@@ -16,5 +16,9 @@ namespace TrendOl.Entities
 		[Required]
 		public string Title { get; set; }
 		public string Description { get; set; }
-	}
+
+
+		[Required]
+		public virtual Brand Brand { get; set; }
+}
 }

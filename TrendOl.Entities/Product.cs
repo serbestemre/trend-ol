@@ -25,15 +25,12 @@ namespace TrendOl.Entities
 		public double Price { get; set; }
 		public int DiscountPercentage { get; set; }
 
-
-		public virtual Brand ProductOwner { get; set; }
-		public virtual Category Category { get; set; }
-		public virtual Wishlist Wishlist { get; set; }
-		public virtual Rating Rating { get; set; }
-		public virtual Sale_Details SaleDetails { get; set; }
+		[Required]
+		public virtual Brand Brand { get; set; }
 		public virtual List<Product_Image> ProductImages { get; set; }
 		public virtual List<Comment> Comments { get; set; }
-
+		public virtual List<Like> Likes { get; set; }
+		public virtual List<Wishlist_Products> WishedProducts { get; set; }
 
 
 	}

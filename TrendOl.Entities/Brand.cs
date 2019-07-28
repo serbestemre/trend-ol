@@ -18,10 +18,12 @@ namespace TrendOl.Entities
 		public string BrandName { get; set; }
 		public string Tag { get; set; }
 		public string BrandImage { get; set; }
-
-		[Required]
-		public virtual MyUser MyUserId { get; set; }
+		
+		
+		public virtual MyUser MyUser { get; set; }
 		public virtual List<Product> Products { get; set; }
+		public virtual List<Category> Categories { get; set; }
 
+		
 	}
 }

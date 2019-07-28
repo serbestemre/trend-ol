@@ -13,11 +13,14 @@ namespace TrendOl.Entities
 	{
 		[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public int Id { get; set; }
-		public int Title { get; set; }
+		public string Title { get; set; }
+		public bool IsPublic { get; set; }
 		
 		[Required]
-		public virtual MyUser Owner { get; set; }
-		public virtual List<Product> Products { get; set; }
+		public virtual MyUser MyUser { get; set; }
+
+		public List<Wishlist_Products> Wishlist_Products { get; set; }
+		
 
 	}
 }

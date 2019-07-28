@@ -16,5 +16,10 @@ namespace TrendOl.Entities
 		public double InstantPrice { get; set; }
 		public int Quantity { get; set; }
 		public double SubTotal { get; set; }
+
+		[Required]
+		public virtual Product Product {get;set;}
+
+		public virtual Sale Sale { get; set; }
 	}
 }

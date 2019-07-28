@@ -8,16 +8,16 @@ using System.Threading.Tasks;
 
 namespace TrendOl.Entities
 {
-	[Table("Product_Images")]
-	public class Product_Image
+	[Table("Likes")]
+	public class Like
 	{
 		[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public int Id { get; set; }
-		[Required]
-		public string Url { get; set; }
 
 		[Required]
-		public virtual Product Product { get; set; }
+		public  virtual MyUser LikeOwner { get; set; }
+		[Required]
+		public virtual Product Product {  get; set; }
 
 	}
 }
