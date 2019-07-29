@@ -12,6 +12,10 @@ namespace TrendOl.WebApp.Controllers
         public ActionResult Index()
         {
 			TrendOl.BusinessLayer.Test test = new BusinessLayer.Test();
+			//test.InsertTest();
+			//test.UpdateTest();
+			//test.DeleteTest();
+			//test.CommentTest();
             return View();
         }
     }
