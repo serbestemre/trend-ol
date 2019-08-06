@@ -24,6 +24,8 @@ namespace TrendOl.DataAccessLayer.EntityFramework
 				Surname = "Serbest",
 				ActivateGuid = Guid.NewGuid(),
 				Email = "eserbest1903@gmail.com",
+				Address = FakeData.PlaceData.GetAddress(),
+				Gender = "Male",
 				IsActive = true,
 				IsSuperUser = true,
 				HasBrand = false,
@@ -45,6 +47,8 @@ namespace TrendOl.DataAccessLayer.EntityFramework
 					Name = FakeData.NameData.GetFirstName(),
 					Surname = FakeData.NameData.GetSurname(),
 					Email = FakeData.NetworkData.GetEmail(),
+					Address = FakeData.PlaceData.GetAddress(),
+					Gender = FakeData.BooleanData.GetBoolean() ? "Male" : "Female",
 					UserImage = FakeData.NetworkData.GetDomain(),
 					ActivateGuid = Guid.NewGuid(),
 					IsActive = true,
@@ -76,23 +80,10 @@ namespace TrendOl.DataAccessLayer.EntityFramework
 			}
 			context.SaveChanges();
 
-			// Creating categories(3,6) for the current Brand
+		
 
-			foreach (var itemBrand in brandList)
-			{
-				for (int a = 0; a < FakeData.NumberData.GetNumber(3, 6); a++)
-				{
-					Category category = new Category()
-					{
-						Title = FakeData.NameData.GetSurname(),
-						Description = FakeData.TextData.GetSentence(),
-						Brand = itemBrand,
-					};
+			
 
-					context.Categories.Add(category);
-				}
-			}
-			context.SaveChanges();
 
 			List<string> sizeList = new List<string>();
 			sizeList.Add("XS");
@@ -109,10 +100,145 @@ namespace TrendOl.DataAccessLayer.EntityFramework
 			colorList.Add("green");
 			colorList.Add("red");
 
+			// Creating Categories MEN, WOMEN, KidsAndBabies
+
+			Category Men = new Category()
+			{
+				Title = "Men",
+				Description = "Only for men shopping items",
+
+			};
+			context.Categories.Add(Men);
+
+			Category Women = new Category()
+			{
+				Title = "Women",
+				Description = "Only for women shopping items",
+			};
+			context.Categories.Add(Women);
+
+			Category KidsAndBabies = new Category()
+			{
+				Title = "Kids & Babies",
+				Description = "Kids and Babies shopping items",
+			
+				
+			};
+			context.Categories.Add(KidsAndBabies);
+			context.SaveChanges();
+			List<Category> mainCategories = new List<Category>();
+			List<SubCategory> MenSubCategories = new List<SubCategory>();
+			List<SubCategory> WomenSubCategories = new List<SubCategory>();
+			List<SubCategory> KidsAndBabiesSubCategories = new List<SubCategory>();
+
+			List<string> MenCatNames = new List<string>()
+			{
+				"Hoodies",
+				"Jackets",
+				"T-shirts",
+				"Shirts",
+				"Socks",
+				"Jeans",
+				"Casual Pants",
+				"Cargo Pants",
+				"Suits",
+				"Boxers",
+				"Men's Sleep Lounge",
+				"Accessories",
+			};
+
+			List<string> WomenCatNames = new List<string>()
+			{
+				"Dress",
+				"Blouses",
+				"T-shirts",
+				"Beach Style",
+				"Skirts",
+				"Shorts",
+				"Jean",
+				"Blazers",
+				"Bra",
+				"Sleep Lounge",
+				"Accessories",
+			};
+
+			List<string> KidsCatNames = new List<string>()
+			{
+				"Dresses",
+				"Clothing Sets",
+				"Family Matching Clothes",
+				"Shoes",
+				"Swim Suits",
+				"Shorts",
+				"Baby Mother",
+				"Toys",
+			};
+
+			foreach (string subCat in MenCatNames)
+			{
+				SubCategory subCatMen = new SubCategory()
+				{
+					Title = subCat,
+					Description = "Men Shopping",
+					Category = Men,
+					
+				};
+
+				MenSubCategories.Add(subCatMen);
+				context.SubCategories.Add(subCatMen);
+			}
+
+			foreach (string subCat in WomenCatNames)
+			{
+				SubCategory subCatWomen = new SubCategory()
+				{
+					Title = subCat,
+					Description = "Women Shopping",
+					Category = Women,
+					
+				};
+
+				WomenSubCategories.Add(subCatWomen);
+				context.SubCategories.Add(subCatWomen);
+			}
+
+			foreach (string subCat in KidsCatNames)
+			{
+				SubCategory subCatKidsAndBabies = new SubCategory()
+				{
+					Title = subCat,
+					Description = "Kids & Babies Shopping",
+					Category = KidsAndBabies,
+				};
+
+				KidsAndBabiesSubCategories.Add(subCatKidsAndBabies);
+				context.SubCategories.Add(subCatKidsAndBabies);
+			}
+
+			context.SaveChanges();
+
+			mainCategories.Add(Men);
+			mainCategories.Add(Women);
+			mainCategories.Add(KidsAndBabies);
+			
 
 			//Creating 50 products
 			for (int j=0; j<50; j++)
 			{
+				Category randomCat = mainCategories[FakeData.NumberData.GetNumber(0, mainCategories.Count - 1)];
+				SubCategory randomSubCat;
+				if (randomCat == Men)
+				{
+					randomSubCat = MenSubCategories[FakeData.NumberData.GetNumber(0, MenSubCategories.Count - 1)];
+				} else if (randomCat == Women)
+				{
+					randomSubCat = WomenSubCategories[FakeData.NumberData.GetNumber(0, WomenSubCategories.Count - 1)];
+				}
+				else
+				{
+					randomSubCat = KidsAndBabiesSubCategories[FakeData.NumberData.GetNumber(0, KidsAndBabiesSubCategories.Count - 1)];
+				}
+
 				Product newProduct = new Product()
 				{
 					ProductName = FakeData.NameData.GetCompanyName(),
@@ -122,7 +248,9 @@ namespace TrendOl.DataAccessLayer.EntityFramework
 					Color = colorList[(FakeData.NumberData.GetNumber(0, colorList.Count - 1))],
 					Stock = FakeData.NumberData.GetNumber(10, 100),
 					Price = FakeData.NumberData.GetDouble(),
-					DiscountPercentage = FakeData.NumberData.GetNumber(0,10),					
+					DiscountPercentage = FakeData.NumberData.GetNumber(0, 10),
+					Category = randomCat,
+					SubCategory = randomSubCat,
 
 				};
 
@@ -142,6 +270,8 @@ namespace TrendOl.DataAccessLayer.EntityFramework
 					Name = FakeData.NameData.GetFirstName(),
 					Surname = FakeData.NameData.GetSurname(),
 					Email = FakeData.NetworkData.GetEmail(),
+					Address = FakeData.PlaceData.GetAddress(),
+					Gender = FakeData.BooleanData.GetBoolean() ? "Male" : "Female",
 					UserImage = FakeData.NetworkData.GetDomain(),
 					ActivateGuid = Guid.NewGuid(),
 					IsActive = true,
@@ -255,12 +385,12 @@ namespace TrendOl.DataAccessLayer.EntityFramework
 
 
 					//Creating likes
-					Like like = new Like()
+					Rate Rate = new Rate()
 					{
-						LikeOwner = standartUserList[FakeData.NumberData.GetNumber(0, standartUserList.Count - 1)],
+						RateOwner = standartUserList[FakeData.NumberData.GetNumber(0, standartUserList.Count - 1)],
 						Product = itemProduct,
 					};
-					context.Likes.Add(like);
+					context.Rates.Add(Rate);
 				}
 			}
 			context.SaveChanges();	

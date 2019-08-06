@@ -18,7 +18,9 @@ namespace TrendOl.Entities
 		public string Description { get; set; }
 
 
-		[Required]
-		public virtual Brand Brand { get; set; }
+		
+		public virtual List<Product> Product { get; set; }
+
+		public virtual List<SubCategory> SubCategories { get; set; }
 }
 }

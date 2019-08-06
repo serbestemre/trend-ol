@@ -29,7 +29,10 @@ namespace TrendOl.Entities
 		public virtual Brand Brand { get; set; }
 		public virtual List<Product_Image> ProductImages { get; set; }
 		public virtual List<Comment> Comments { get; set; }
-		public virtual List<Like> Likes { get; set; }
+		public virtual List<Rate> Likes { get; set; }
+
+		public virtual Category Category { get; set; }
+		public virtual SubCategory SubCategory { get; set; }
 		public virtual List<Wishlist_Products> WishedProducts { get; set; }
 
 

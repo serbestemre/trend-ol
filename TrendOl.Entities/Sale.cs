@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace TrendOl.Entities
 {
-	[Table("Sale")]
+	[Table("Sales")]
 	public class Sale
 	{
 		[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]

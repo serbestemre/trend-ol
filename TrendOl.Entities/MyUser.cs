@@ -17,6 +17,9 @@ namespace TrendOl.Entities
 		[Required]
 		public string Name { get; set; }
 		public string Surname { get; set; }
+		public string Gender { get; set; }
+		public string Address { get; set; }
+
 		[Required]
 		public string Username { get; set; }
 		[Required]
@@ -32,7 +35,7 @@ namespace TrendOl.Entities
 		public virtual List<Comment> Comments { get; set; }
 		
 		//public virtual Wishlist Wishlist { get; set; }
-		public virtual List<Like> Likes { get; set; }
+		public virtual List<Rate> Likes { get; set; }
 		public virtual List<Sale> Sales { get; set; }
 
 	}

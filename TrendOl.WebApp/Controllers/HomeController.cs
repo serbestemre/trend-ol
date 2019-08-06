@@ -11,12 +11,19 @@ namespace TrendOl.WebApp.Controllers
         // GET: Home
         public ActionResult Index()
         {
-			TrendOl.BusinessLayer.Test test = new BusinessLayer.Test();
+
+			BusinessLayer.Test test = new BusinessLayer.Test();
 			//test.InsertTest();
 			//test.UpdateTest();
 			//test.DeleteTest();
 			//test.CommentTest();
             return View();
         }
-    }
+
+		public ActionResult Index2()
+		{
+	
+			return View();
+		}
+	}
 }

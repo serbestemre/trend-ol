@@ -22,7 +22,6 @@ namespace TrendOl.Entities
 		
 		public virtual MyUser MyUser { get; set; }
 		public virtual List<Product> Products { get; set; }
-		public virtual List<Category> Categories { get; set; }
 
 		
 	}

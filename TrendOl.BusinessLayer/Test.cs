@@ -16,11 +16,11 @@ namespace TrendOl.BusinessLayer
 		private Repository<Comment> repoComment = new Repository<Comment>();
 		public Test()
 		{
-			//DataAccessLayer.DatabaseContext db = new DataAccessLayer.DatabaseContext();
+			DatabaseContext db = new DatabaseContext();
 			//db.Database.CreateIfNotExists();
-			//db.MyUsers.ToList();
-			List<Category> categories = repo.List();
-			List<Category> filteredCategories = repo.List(x => x.Id > 10);
+			db.MyUsers.ToList();
+			//List<Category> categories = repo.List();
+			//List<Category> filteredCategories = repo.List(x => x.Id > 10);
 		}
 
 		public void InsertTest()
