@@ -1,0 +1,135 @@
+﻿@using TrendOl.BusinessLayer
+@using TrendOl.Entities
+
+
+@{
+	CategoryManager cm = new CategoryManager();
+	List<Category> MainCategories = cm.GetCategories();
+
+	SubCategoryManager subcm = new SubCategoryManager();
+	var isShowing = "show";
+	int CategoryCounter = 0;
+
+}
+
+
+
+<head>
+	<link href="~/Content/categories.css" rel="stylesheet" />
+
+	<link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Merriweather:700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Red+Hat+Display&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+
+
+</head>
+
+
+
+
+<div class="accordion" id="AccordionCategory">
+
+	<div class="section-title d-flex justify-content-center">
+		<h6 class="headline">Categories</h6>
+	</div>
+
+	<div class="category-item">
+
+		@foreach (Category itemCat in MainCategories)
+		{
+			<div class="category-header">
+				<a data-toggle="collapse" data-target="#collapse-@itemCat.Id" aria-expanded="true" aria-controls="@itemCat.Id">
+					@itemCat.Title
+				</a><br />
+			</div>
+
+			List<SubCategory> subCategories = subcm.GetSubCategories(itemCat.Id);
+
+			if (CategoryCounter >= 1)
+			{
+				isShowing = "";
+			}
+
+
+			<div class="category-list">
+				<ul id="collapse-@itemCat.Id" class="collapse @isShowing" aria-labelledby="@itemCat.Title" data-parent="#AccordionCategory">
+
+					@foreach (SubCategory itemSubCat in subCategories)
+					{
+						<li>
+							@itemSubCat.Title
+						</li>
+					}
+
+
+				</ul>
+			</div>
+
+			CategoryCounter +=1;
+		}
+
+
+
+	</div>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<div class="accordion" id="accordionExample">
+
+		@foreach (Category itemCat in MainCategories)
+		{
+			List<SubCategory> subCategories = subcm.GetSubCategories(itemCat.Id);
+
+			<div class="card">
+
+					<div class="card-header" id="@itemCat.Title">
+						<h5 class="mb-0">
+							<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#cat-@itemCat.Id" aria-expanded="true" aria-controls="@itemCat.Title">
+								@itemCat.Title
+							</button>
+						</h5>
+					</div>
+
+				@if(CategoryCounter >= 1)
+				{
+					isShowing = "";
+				}
+
+
+
+					<div id="cat-@itemCat.Id" class="collapse @isShowing" aria-labelledby="@itemCat.Title" data-parent="#accordionExample">
+						<ul>
+							@foreach (SubCategory itemSubCat in subCategories)
+							{
+								<li>@itemSubCat.Title</li>
+							}
+						</ul>
+					</div>
+
+			</div>
+			CategoryCounter +=1;
+		}
+
+
+	</div>*@
+
+

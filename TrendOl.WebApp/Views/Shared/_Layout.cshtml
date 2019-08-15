@@ -2,23 +2,61 @@
 <html>
 <head>
 	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-	<link href="~/Content/Site.css" rel="stylesheet" />
-	<script src="~/Scripts/jquery-3.4.1.min.js"></script>
-	<link href="~/Content/fontawesome5.10/css/all.css" rel="stylesheet" />
-
+	<script src="~/Scripts/jquery-3.2.1.js"></script>
 	<script src="~/Scripts/bootstrap.min.js"></script>
+	<link href="~/Content/fontawesome5.10/css/all.css" rel="stylesheet" />
 	<script src="~/Content/fontawesome5.10/js/all.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+
+	<style>
+		.container {
+			max-width: inherit;
+		}
+	</style>
+
+	@*
+
+
+	*@
+
+
 </head>
 <body>
- 
-	<div class="container body-content">
-		@RenderBody()
-		<hr />
-		<footer>
-			<p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-		</footer>
-	</div>
 
-   
+	<nav class="navbar navbar-expand-lg navbar-light " style="background-color:#fff;">
+		<div class="container">
+			<a class="navbar-brand" href="#" style="font-size:30px; font-family: 'Saira Stencil One', cursive;"><b>Trend</b><i class="fas fa-globe-europe"></i><b>L</b></a>
+		</div>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navLinks" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navLinks">
+			<ul class="navbar-nav mt-2 mt-lg-0 ml-auto">
+				<li class="nav-item active">
+					<a class="nav-link" href="@Url.Action("Index", "Home")">
+						<span class="sr-only">(current)</span>Home
+					</a>
+
+
+				</li>
+				<li class="nav-item">
+				@Html.ActionLink("Shopping", "Shopping", "Home", null, new { @class = "nav-link" })
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">About</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+
+					
+			@RenderBody()		
+		<hr />
+	
+
+
 </body>
 </html>

@@ -1,77 +1,93 @@
 ﻿
 @{
-    ViewBag.Title = "Index";
+	ViewBag.Title = "Index";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<style>
+	.jumbotron{
+		margin-bottom:0px;
+	}
+	.jumbotronImage {
+		/*background-image: url('../../Content/images/jumbo.jpg');*/
+		
+		background-image: url('../../Content/images/jumbotron.jpg');
+		background-size: cover;
+		color: white;
+		background-position: center; /* Center the image */
+		background-repeat: no-repeat; /* Do not repeat the image */
+	}
+
+	.card {
+		background-color: white;
+		border: none;
+	}
+
+	#cardRow {
+		background-color: white;
+	}
+</style>
 
 
-<div class="row">
-	<div class="col-md-3">
-		<div id="accordion">
-			<div class="card">
-				<div class="card-header" id="headingOne">
-					<h5 class="mb-0">
-						<button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-							Erkek
-						</button>
-					</h5>
-				</div>
-				<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-					<div class="card-body">
-						<ul class="list-group">
-							<li class="list-group-item active">Cras justo odio</li>
-							<li class="list-group-item">Dapibus ac facilisis in</li>
-							<li class="list-group-item">Morbi leo risus</li>
-							<li class="list-group-item">Porta ac consectetur ac</li>
-							<li class="list-group-item">Vestibulum at eros</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-			<div class="card">
-				<div class="card-header" id="headingTwo">
-					<h5 class="mb-0">
-						<button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-							Kadın
-						</button>
-					</h5>
-				</div>
-				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-					<div class="card-body">
-						<ul>
-							<li>categ1</li>
-							<li>categ2</li>
-							<li>categ3</li>
 
-						</ul>
-					</div>
-				</div>
-			</div>
-			<div class="card">
-				<div class="card-header" id="headingThree">
-					<h5 class="mb-0">
-						<button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-							Çocuk
-						</button>
-					</h5>
-				</div>
-				<div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-					<div class="card-body">
-						<ul>
-							<li>cat1</li>
-							<li>cat2</li>
-							<li>cat3</li>
-							<li>cat4</li>
-							<li>cat5</li>
-							<li>cat6</li>
-							<li>cat7</li>
-							<li>cat8</li>
-						</ul>
-					</div>
-				</div>
+<div id="header" class="jumbotron jumbotronImage">
+	<h1 class="display-4">Trend Ol 2019</h1>
+	<p class="lead">
+		In malesuada semper mi, id sollicitudin urna fermentum ut fusce varius nisl.
+	</p>
+	<hr class="my-4">
+	<p>Best online shopping address</p>
+	@Html.ActionLink("Start Shopping", "Shopping", "Home", null, new { @class = "btn btn-light btn-lg" })
+
+</div>
+
+
+<div id="cardRow" class="container d-flex justify-content-center pt-1 ">
+	<div class="row">
+		<div class="card col-lg-4 col-sm-12 align-items-center pt-2 " style="width:18rem;">
+			<i class="fas fa-shopping-bag card-img-bottom" style="font-size:50px;color:#43A047;"></i>
+			<div class="card-body">
+				<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
 			</div>
 		</div>
+		<div class="card col-lg-4 col-sm-12 align-items-center pt-2" style="width: 18rem; ">
+			<i class="fas fa-user-plus card-img-bottom" style="font-size:50px; color:#43A047;"></i>
 
+			<div class="card-body">
+				<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+			</div>
+		</div>
+		<div class="card col-lg-4 col-sm-12 align-items-center pt-2" style="width: 18rem; ">
+			<i class="fas fa-money-check-alt  card-img-bottom" style="font-size:50px; color:#43A047;"></i>			<div class="card-body">
+				<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+			</div>
+		</div>
 	</div>
 </div>
+
+
+<div class="row d-flex justify-content-center">
+
+	<div class="container m-1 col-lg-5">
+		<h4>
+			Sit amet, consectetur.
+		</h4>
+
+		<p class="text-body">
+			Cras ut metus a risus iaculis scelerisque eu ac ante fusce non varius purus aenean nec magna felis fusce vestibulum velit mollis odio sollicitudin lacinia aliquam posuere, sapien elementum lobortis tincidunt, turpis dui ornare nisl, sollicitudin interdum turpis nunc eget sem nulla eu ultricies orci praesent id augue nec lorem pretium congue sit amet ac nunc fusce iaculis lorem eu diam hendrerit at mattis purus dignissim vivamus mauris tellus, fringilla vel dapibus a, blandit quis erat vivamus elementum aliquam luctus.
+		</p>
+	</div>
+
+	<div class="container m-1 col-lg-5">
+		<h4>
+			Consectetur adipiscing elit fusce vel.
+		</h4>
+
+		<p class="text-body">
+			Laoreet ac, aliquam sit amet justo nunc tempor, metus vel placerat suscipit, orci nisl iaculis eros, a tincidunt nisi odio eget lorem nulla condimentum tempor mattis ut vitae feugiat augue cras ut metus a risus iaculis scelerisque eu ac ante fusce non varius purus aenean nec magna felis fusce vestibulum.
+		</p>
+	</div>
+
+</div>
+
+@Html.Partial("_PartialFooter")

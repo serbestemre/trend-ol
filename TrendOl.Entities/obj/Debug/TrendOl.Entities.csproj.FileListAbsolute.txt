@@ -1,6 +1,6 @@
 C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.Entities\bin\Debug\TrendOl.Entities.dll
 C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.Entities\bin\Debug\TrendOl.Entities.pdb
+C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.Entities\obj\Debug\TrendOl.Entities.csprojAssemblyReference.cache
 C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.Entities\obj\Debug\TrendOl.Entities.csproj.CoreCompileInputs.cache
 C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.Entities\obj\Debug\TrendOl.Entities.dll
 C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.Entities\obj\Debug\TrendOl.Entities.pdb
-C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.Entities\obj\Debug\TrendOl.Entities.csprojAssemblyReference.cache

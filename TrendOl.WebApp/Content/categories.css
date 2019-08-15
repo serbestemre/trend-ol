@@ -1,0 +1,29 @@
+﻿.section-title {
+	font-family: 'Poppins', sans-serif;
+}
+.category-header {
+	padding-left: 1em;
+	cursor: pointer;
+}
+
+.category-header>a {
+	font-family: 'Merriweather', serif;
+}
+
+	.category-header > a:hover {
+		font-size:18px;
+	}
+
+.category-list > ul {
+	font-family: 'Red Hat Display', sans-serif;
+	list-style: none;
+	padding-left: 1.3em;
+
+}
+.category-list > ul > li {
+		color: dimgray;
+	}
+	.category-list > ul > li:hover {
+		color: #78e08f;
+		cursor: pointer;
+	}
