@@ -247,7 +247,7 @@ namespace TrendOl.DataAccessLayer.EntityFramework
 					Size = sizeList[(FakeData.NumberData.GetNumber(0, sizeList.Count - 1))],
 					Color = colorList[(FakeData.NumberData.GetNumber(0, colorList.Count - 1))],
 					Stock = FakeData.NumberData.GetNumber(10, 100),
-					Price = FakeData.NumberData.GetDouble(),
+					Price = FakeData.NumberData.GetNumber(15,150),
 					DiscountPercentage = FakeData.NumberData.GetNumber(0, 10),
 					Category = randomCat,
 					SubCategory = randomSubCat,

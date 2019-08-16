@@ -18,5 +18,12 @@ namespace TrendOl.BusinessLayer
 			return repo_subCategory.List().Where(x => x.Category.Id == mainCatId).ToList();
 		}
 
+		public SubCategory GetSubCategoryById(int subCatId)
+		{
+			return repo_subCategory.Find(x => x.Id == subCatId);
+		}
+
 	}
+
+
 }

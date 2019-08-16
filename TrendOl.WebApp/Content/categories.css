@@ -1,29 +1,29 @@
 ﻿.section-title {
 	font-family: 'Poppins', sans-serif;
 }
-.category-header {
+.left-menu-header {
 	padding-left: 1em;
 	cursor: pointer;
 }
 
-.category-header>a {
-	font-family: 'Merriweather', serif;
-}
-
-	.category-header > a:hover {
-		font-size:18px;
+	.left-menu-header > a {
+		font-family: 'Merriweather', serif;
 	}
 
-.category-list > ul {
+		.left-menu-header > a:hover {
+			font-size: larger;
+		}
+
+.left-menu-list > ul {
 	font-family: 'Red Hat Display', sans-serif;
 	list-style: none;
 	padding-left: 1.3em;
-
 }
-.category-list > ul > li {
+	.left-menu-list > ul > li>a {
 		color: dimgray;
 	}
-	.category-list > ul > li:hover {
-		color: #78e08f;
-		cursor: pointer;
-	}
+		.left-menu-list > ul > li >a:hover {
+			color: #78e08f;
+			cursor: pointer;
+		}
+
