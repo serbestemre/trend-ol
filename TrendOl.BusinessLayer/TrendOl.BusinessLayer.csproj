@@ -49,7 +49,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BrandManager.cs" />
+    <Compile Include="BusinessLayerResult.cs" />
     <Compile Include="CategoryManager.cs" />
+    <Compile Include="MyUserManager.cs" />
     <Compile Include="ProductManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SubCategoryManager.cs" />

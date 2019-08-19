@@ -1,4 +1,4 @@
-﻿@using TrendOl.WebApp.ViewModels
+﻿@using TrendOl.Entities.ValueObjects
 @model RegisterViewModel
 
 
@@ -7,7 +7,7 @@
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
+	<link href="~/Content/validation.css" rel="stylesheet" />
 <div class="row">
 	<div class="col-md-4 offset-md-4">
 		<div class="card">
@@ -18,6 +18,10 @@
 
 				@using (Html.BeginForm())
 				{
+
+
+					@Html.ValidationSummary()
+
 					<div class="form-group">
 						<div class="input-group">
 							<div class="input-group-prepend">
@@ -67,5 +71,3 @@
 		</div>
 	</div>
 </div>
-
-
