@@ -26,6 +26,7 @@ namespace TrendOl.WebApp.Controllers
 				
 				return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 			}
+			
 
 			SubCategoryManager sm = new SubCategoryManager();
 

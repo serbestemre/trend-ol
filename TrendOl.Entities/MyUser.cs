@@ -14,17 +14,17 @@ namespace TrendOl.Entities
 	{
 		[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public int Id { get; set; }
-		[Required]
+		
 		public string Name { get; set; }
 		public string Surname { get; set; }
 		public string Gender { get; set; }
 		public string Address { get; set; }
 
-		[Required]
+		[Required, MaxLength(25), MinLength(3)]
 		public string Username { get; set; }
-		[Required]
+		[Required, MaxLength(25), MinLength(6)]
 		public string Password { get; set; }
-		[Required]
+		[Required,DataType(DataType.EmailAddress)]
 		public string Email { get; set; }
 		public string UserImage { get; set; }
 

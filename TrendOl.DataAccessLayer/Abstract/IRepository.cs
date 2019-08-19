@@ -12,6 +12,7 @@ namespace TrendOl.DataAccessLayer.Abstract
 		List<T> List();
 
 		List<T> List(Expression<Func<T, bool>> where);
+		IQueryable<T> ListQueryable();
 
 		int Insert(T obj);
 

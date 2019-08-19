@@ -55,7 +55,7 @@ namespace TrendOl.DataAccessLayer.EntityFramework
 					IsSuperUser = false,
 					HasBrand = true,
 					Username = $"brandUser{i}",
-					Password = "b123"
+					Password = "b1234567"
 				};
 				brandUsers.Add(BrandUser);
 				context.MyUsers.Add(BrandUser);
@@ -278,7 +278,7 @@ namespace TrendOl.DataAccessLayer.EntityFramework
 					IsSuperUser = false,
 					HasBrand = false,
 					Username = $"standartUser{s}",
-					Password = "s123"
+					Password = "standart1234"
 				};
 				standartUserList.Add(standartUser);
 				context.MyUsers.Add(standartUser);

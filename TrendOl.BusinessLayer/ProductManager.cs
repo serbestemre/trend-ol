@@ -18,6 +18,11 @@ public class ProductManager
 		{
 			return repo_product.List();
 		}
+
+		public IQueryable<Product> GetAllProductsQueryable()
+		{
+			return repo_product.ListQueryable();
+		}
 	}
 
 }

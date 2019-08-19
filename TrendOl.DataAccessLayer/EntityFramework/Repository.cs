@@ -19,7 +19,12 @@ namespace TrendOl.DataAccessLayer.EntityFramework
 		}
 		public List<T> List()
 		{
-			return context.Set<T>().ToList();
+			return _objectSet.ToList();
+		}
+
+		public IQueryable<T> ListQueryable()
+		{
+			return _objectSet.AsQueryable<T>();
 		}
 
 		public List<T> List(Expression<Func<T,bool>> where)

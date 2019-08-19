@@ -4,8 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TrendOl.BusinessLayer;
-
-
+using TrendOl.WebApp.ViewModels;
 
 namespace TrendOl.WebApp.Controllers
 {
@@ -22,7 +21,31 @@ namespace TrendOl.WebApp.Controllers
 			return View();
 		}
 
-		
+		public ActionResult Login()
+		{
+			return View();
+		}
+		[HttpPost]
+		public ActionResult Login(LoginViewModel model)
+		{
+			return View();
+		}
 
+
+		public ActionResult Register()
+		{
+			return View();
+		}
+
+		[HttpPost]
+		public ActionResult Register(RegisterViewModel model)
+		{
+			return View();
+		}
+
+		public ActionResult Logout()
+		{
+			return View();
+		}
 	}
-}
+} 
