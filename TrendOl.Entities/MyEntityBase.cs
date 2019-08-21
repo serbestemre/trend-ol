@@ -8,18 +8,18 @@ using System.Threading.Tasks;
 
 namespace TrendOl.Entities
 {
-	[Table("Comments")]
-	public class Comment :MyEntityBase
+	public class MyEntityBase
 	{
-	
-		[Required]
-
-		
-		public string Text { get; set; }
+		[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+		public int Id { get; set; }
 
 		[Required]
-		public virtual MyUser Owner { get; set; }
+		public DateTime CreatedOn { get; set; }
+
 		[Required]
-		public virtual Product Product { get; set; }
+		public DateTime ModifiedOn { get; set; }
+
+		[Required]
+		public string ModifiedUsername { get; set; }
 	}
 }

@@ -32,6 +32,9 @@ namespace TrendOl.DataAccessLayer.EntityFramework
 				Username = "eserbest",
 				Password = "123456",
 				UserImage = FakeData.NetworkData.GetDomain(),
+				CreatedOn = DateTime.Now,
+				ModifiedOn = DateTime.Now,
+				ModifiedUsername = "system",
 
 			};
 
@@ -55,7 +58,10 @@ namespace TrendOl.DataAccessLayer.EntityFramework
 					IsSuperUser = false,
 					HasBrand = true,
 					Username = $"brandUser{i}",
-					Password = "b1234567"
+					Password = "b1234567",
+					CreatedOn = DateTime.Now,
+					ModifiedOn = DateTime.Now,
+					ModifiedUsername = "system",
 				};
 				brandUsers.Add(BrandUser);
 				context.MyUsers.Add(BrandUser);
@@ -73,6 +79,9 @@ namespace TrendOl.DataAccessLayer.EntityFramework
 					BrandImage = "BrandImage.jpg",
 					Tag = FakeData.TextData.GetSentence(),
 					MyUser = item,
+					CreatedOn = DateTime.Now,
+					ModifiedOn = DateTime.Now,
+					ModifiedUsername = "system",
 				};
 				brandList.Add(newBrand);
 				context.Brands.Add(newBrand);
@@ -106,7 +115,9 @@ namespace TrendOl.DataAccessLayer.EntityFramework
 			{
 				Title = "Men",
 				Description = "Only for men shopping items",
-
+				CreatedOn = DateTime.Now,
+				ModifiedOn = DateTime.Now,
+				ModifiedUsername = "system",
 			};
 			context.Categories.Add(Men);
 
@@ -114,6 +125,9 @@ namespace TrendOl.DataAccessLayer.EntityFramework
 			{
 				Title = "Women",
 				Description = "Only for women shopping items",
+				CreatedOn = DateTime.Now,
+				ModifiedOn = DateTime.Now,
+				ModifiedUsername = "system",
 			};
 			context.Categories.Add(Women);
 
@@ -121,8 +135,9 @@ namespace TrendOl.DataAccessLayer.EntityFramework
 			{
 				Title = "Kids & Babies",
 				Description = "Kids and Babies shopping items",
-			
-				
+				CreatedOn = DateTime.Now,
+				ModifiedOn = DateTime.Now,
+				ModifiedUsername = "system",
 			};
 			context.Categories.Add(KidsAndBabies);
 			context.SaveChanges();
@@ -181,7 +196,9 @@ namespace TrendOl.DataAccessLayer.EntityFramework
 					Title = subCat,
 					Description = "Men Shopping",
 					Category = Men,
-					
+					CreatedOn = DateTime.Now,
+					ModifiedOn = DateTime.Now,
+					ModifiedUsername = "system",
 				};
 
 				MenSubCategories.Add(subCatMen);
@@ -195,7 +212,9 @@ namespace TrendOl.DataAccessLayer.EntityFramework
 					Title = subCat,
 					Description = "Women Shopping",
 					Category = Women,
-					
+					CreatedOn = DateTime.Now,
+					ModifiedOn = DateTime.Now,
+					ModifiedUsername = "system",
 				};
 
 				WomenSubCategories.Add(subCatWomen);
@@ -209,6 +228,9 @@ namespace TrendOl.DataAccessLayer.EntityFramework
 					Title = subCat,
 					Description = "Kids & Babies Shopping",
 					Category = KidsAndBabies,
+					CreatedOn = DateTime.Now,
+					ModifiedOn = DateTime.Now,
+					ModifiedUsername = "system",
 				};
 
 				KidsAndBabiesSubCategories.Add(subCatKidsAndBabies);
@@ -251,6 +273,9 @@ namespace TrendOl.DataAccessLayer.EntityFramework
 					DiscountPercentage = FakeData.NumberData.GetNumber(0, 10),
 					Category = randomCat,
 					SubCategory = randomSubCat,
+					CreatedOn = DateTime.Now,
+					ModifiedOn = DateTime.Now,
+					ModifiedUsername = "system",
 
 				};
 
@@ -278,7 +303,10 @@ namespace TrendOl.DataAccessLayer.EntityFramework
 					IsSuperUser = false,
 					HasBrand = false,
 					Username = $"standartUser{s}",
-					Password = "standart1234"
+					Password = "standart1234",
+					CreatedOn = DateTime.Now,
+					ModifiedOn = DateTime.Now,
+					ModifiedUsername = "system",
 				};
 				standartUserList.Add(standartUser);
 				context.MyUsers.Add(standartUser);
@@ -373,13 +401,17 @@ namespace TrendOl.DataAccessLayer.EntityFramework
 					};
 					context.ProductImages.Add(productImage);
 
-				
+
+					MyUser owner = standartUserList[FakeData.NumberData.GetNumber(0, standartUserList.Count - 1)];
 					//Adding comments
 					Comment newComment = new Comment()
 					{
 						Text = FakeData.TextData.GetSentences(FakeData.NumberData.GetNumber(1, 3)),
-						Owner = standartUserList[FakeData.NumberData.GetNumber(0, standartUserList.Count - 1)],
+						Owner = owner,
 						Product = itemProduct,
+						CreatedOn = DateTime.Now,
+						ModifiedOn = DateTime.Now,
+						ModifiedUsername = owner.Username,
 					};
 					context.Comments.Add(newComment);
 
@@ -389,6 +421,7 @@ namespace TrendOl.DataAccessLayer.EntityFramework
 					{
 						RateOwner = standartUserList[FakeData.NumberData.GetNumber(0, standartUserList.Count - 1)],
 						Product = itemProduct,
+
 					};
 					context.Rates.Add(Rate);
 				}

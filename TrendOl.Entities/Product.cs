@@ -10,10 +10,8 @@ namespace TrendOl.Entities
 {
 	[Table("Products")]
 
-	public class Product
+	public class Product : MyEntityBase
 	{
-		[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-		public int Id { get; set; }
 		[Required]
 		public string ProductName { get; set; }
 		public string ProductDescription { get; set; }

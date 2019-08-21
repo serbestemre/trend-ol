@@ -8,10 +8,9 @@ using System.Threading.Tasks;
 
 namespace TrendOl.Entities
 {
-	public class SubCategory
+	public class SubCategory:MyEntityBase
 	{
-		[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-		public int Id { get; set; }
+	
 		public string Title { get; set; }
 
 		public string Description { get; set; }

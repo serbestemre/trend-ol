@@ -6,6 +6,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using TrendOl.DataAccessLayer.Abstract;
+using TrendOl.Entities;
 
 namespace TrendOl.DataAccessLayer.EntityFramework
 {
@@ -35,11 +36,31 @@ namespace TrendOl.DataAccessLayer.EntityFramework
 		public int Insert(T obj)
 		{
 			_objectSet.Add(obj);
+
+			if(obj is MyEntityBase)
+			{
+				MyEntityBase o = obj as MyEntityBase;
+				DateTime now = DateTime.Now;
+
+				o.CreatedOn = now;
+				o.ModifiedOn = now;
+				o.ModifiedUsername = "system";  // TODO there must come username who insert into the db
+			}
+
 			return Save();
 		}
 
 		public int Update(T obj)
 		{
+
+
+			if (obj is MyEntityBase)
+			{
+				MyEntityBase o = obj as MyEntityBase;
+				o.ModifiedOn = DateTime.Now;
+				o.ModifiedUsername = "system";  // TODO there must come username who update the tuple on the db
+			}
+
 			return Save();
 		}
 

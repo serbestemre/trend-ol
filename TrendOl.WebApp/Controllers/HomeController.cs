@@ -29,7 +29,28 @@ namespace TrendOl.WebApp.Controllers
 		[HttpPost]
 		public ActionResult Login(LoginViewModel model)
 		{
-			return View();
+
+			if (ModelState.IsValid)
+			{
+				MyUserManager user_manager = new MyUserManager();
+				BusinessLayerResult<MyUser> res = user_manager.LoginUser(model);
+
+				if (res.Errors.Count > 0)
+				{
+					res.Errors.ForEach(x => ModelState.AddModelError("", x.Message));
+
+
+
+
+					return View(model);
+				}
+
+				Session["login"] = res.Result; // SESSION
+				return RedirectToAction("Index");
+
+			}
+
+			return View(model);
 		}
 
 
@@ -49,7 +70,7 @@ namespace TrendOl.WebApp.Controllers
 
 				if (result.Errors.Count > 0)
 				{
-					result.Errors.ForEach(x => ModelState.AddModelError("",x));
+					result.Errors.ForEach(x => ModelState.AddModelError("",x.Message));
 					return View(model);
 				}
 

@@ -9,11 +9,8 @@ using System.Threading.Tasks;
 namespace TrendOl.Entities
 {
 	[Table("Brands")]
-	public class Brand
+	public class Brand : MyEntityBase
 	{
-		[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-		public int Id { get; set; }
-
 		[Required]
 		public string BrandName { get; set; }
 		public string Tag { get; set; }

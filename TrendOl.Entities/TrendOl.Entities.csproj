@@ -45,6 +45,9 @@
     <Compile Include="Brand.cs" />
     <Compile Include="Category.cs" />
     <Compile Include="Comment.cs" />
+    <Compile Include="Messages\ErrorMessageCode.cs" />
+    <Compile Include="Messages\ErrorMessageObj.cs" />
+    <Compile Include="MyEntityBase.cs" />
     <Compile Include="MyUser.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="Product_Image.cs" />

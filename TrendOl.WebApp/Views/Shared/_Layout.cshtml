@@ -7,6 +7,8 @@
 	<link href="~/Content/fontawesome5.10/css/all.css" rel="stylesheet" />
 	<script src="~/Content/fontawesome5.10/js/all.js"></script>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<link href="https://fonts.googleapis.com/css?family=Saira+Stencil+One&display=swap" rel="stylesheet">
+
 
 
 	<style>
@@ -15,10 +17,6 @@
 		}
 	</style>
 
-	@*
-
-
-	*@
 
 
 </head>
@@ -32,23 +30,42 @@
 			<span class="navbar-toggler-icon"></span>
 		</button>
 
-		<div class="collapse navbar-collapse" id="navLinks">
-			<ul class="navbar-nav mt-2 mt-lg-0 ml-auto">
-				<li class="nav-item active">
-					<a class="nav-link" href="@Url.Action("Index", "Home")">
-						<span class="sr-only">(current)</span>Home
-					</a>
+		<div class="flex-column">
 
+			<div class="collapse navbar-collapse flex-row" id="navLinks">
+				<ul class="navbar-nav mt-2 mt-lg-0 ml-auto">
+					<li class="nav-item">
+						</i>@Html.ActionLink("Register", "Register", "Home", null, new { @class = "nav-link" })
+					</li>
+					<li class="nav-item">
+						@Html.ActionLink("Login", "Login", "Home", null, new { @class = "nav-link" })
+					</li>
+					
+				</ul>
+			</div>
+			<div class="collapse navbar-collapse flex-row" id="navLinks">
+				<ul class="navbar-nav mt-2 mt-lg-0 ml-auto flex-row">
+					<li class="nav-item active">
+						<a class="nav-link" href="@Url.Action("Index", "Home")">
+							<span class="sr-only">(current)</span>Home
+						</a>
+					</li>
 
-				</li>
-				<li class="nav-item">
-				@Html.ActionLink("Shopping", "Shopping", "Shopping", null, new { @class = "nav-link" })
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#">About</a>
-				</li>
-			</ul>
+					<li class="nav-item">
+						@Html.ActionLink("Shopping", "Shopping", "Shopping", null, new { @class = "nav-link" })
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">About</a>
+					</li>
+					<li class="nav-item">
+						@Html.ActionLink("KullanıcıAdı", "", "", null, new { @class = "nav-link" })
+					</li>
+				</ul>
+			</div>
+
 		</div>
+
+		
 	</nav>
 
 

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using TrendOl.DataAccessLayer.EntityFramework;
 using TrendOl.Entities;
 using TrendOl.Entities.ValueObjects;
+using TrendOl.Entities.Messages;
 
 namespace TrendOl.BusinessLayer
 {
@@ -24,11 +25,11 @@ namespace TrendOl.BusinessLayer
 			{
 				if (user.Username == data.Username)
 				{
-					layerResult.Errors.Add(data.Username + " is already exist.");
+					layerResult.AddError(ErrorMessageCode.UsernameAlreadyExist, "Username is already exist.");
 				}
 				if (user.Email == data.Email)
 				{
-					layerResult.Errors.Add(data.Email + " is using by another user.");
+					layerResult.AddError(ErrorMessageCode.EmailAlreadyExist, "Email is using by another user.");
 				}
 			
 			}
@@ -38,7 +39,15 @@ namespace TrendOl.BusinessLayer
 				{
 					Username = data.Username,
 					Email = data.Email,
-					Password = data.Password
+					Password = data.Password,
+					IsActive =false,
+					IsSuperUser=false,
+					HasBrand = false,
+					Name = "username",
+					Surname = "surname",
+					ActivateGuid = Guid.NewGuid(),
+					
+				
 				});
 				if (dbResult > 0)
 				{
@@ -52,6 +61,25 @@ namespace TrendOl.BusinessLayer
 
 				return layerResult;
 			}
+
+		public BusinessLayerResult<MyUser> LoginUser(LoginViewModel data)
+		{
+			BusinessLayerResult<MyUser> result = new BusinessLayerResult<MyUser>();
+			result.Result = repo_user.Find(x => x.Username == data.Username && x.Password == data.Password);
+
+			if(result.Result != null)
+			{
+				if (!result.Result.IsActive)
+				{
+					result.AddError(ErrorMessageCode.EmailAlreadyExist, "The user is not activated. Please check your e - mail account.");
+				}
+			}
+			else
+			{
+				result.AddError(ErrorMessageCode.UsernameOrPassWrong, "Incorrect Username or Password.");
+			}
+			return result;
+		}
 
 
 		}
