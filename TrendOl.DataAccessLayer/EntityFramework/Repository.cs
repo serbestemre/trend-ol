@@ -5,6 +5,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using TrendOl.Common;
 using TrendOl.DataAccessLayer.Abstract;
 using TrendOl.Entities;
 
@@ -44,7 +45,7 @@ namespace TrendOl.DataAccessLayer.EntityFramework
 
 				o.CreatedOn = now;
 				o.ModifiedOn = now;
-				o.ModifiedUsername = "system";  // TODO there must come username who insert into the db
+				o.ModifiedUsername = App.Common.GetCurrentUsername();    // TODO there must come username who insert into the db
 			}
 
 			return Save();
@@ -58,7 +59,7 @@ namespace TrendOl.DataAccessLayer.EntityFramework
 			{
 				MyEntityBase o = obj as MyEntityBase;
 				o.ModifiedOn = DateTime.Now;
-				o.ModifiedUsername = "system";  // TODO there must come username who update the tuple on the db
+				o.ModifiedUsername = App.Common.GetCurrentUsername();  // TODO there must come username who update the tuple on the db
 			}
 
 			return Save();

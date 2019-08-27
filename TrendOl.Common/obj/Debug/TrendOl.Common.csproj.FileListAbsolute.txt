@@ -1,0 +1,5 @@
+C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.Common\bin\Debug\TrendOl.Common.dll
+C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.Common\bin\Debug\TrendOl.Common.pdb
+C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.Common\obj\Debug\TrendOl.Common.csproj.CoreCompileInputs.cache
+C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.Common\obj\Debug\TrendOl.Common.dll
+C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.Common\obj\Debug\TrendOl.Common.pdb

@@ -58,6 +58,10 @@
     <Compile Include="Test.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\TrendOl.Common\TrendOl.Common.csproj">
+      <Project>{6dbd77e4-daaa-4f1f-8f26-426c51bd3eed}</Project>
+      <Name>TrendOl.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TrendOl.DataAccessLayer\TrendOl.DataAccessLayer.csproj">
       <Project>{52bba29e-0111-4676-bb54-ccb143951010}</Project>
       <Name>TrendOl.DataAccessLayer</Name>

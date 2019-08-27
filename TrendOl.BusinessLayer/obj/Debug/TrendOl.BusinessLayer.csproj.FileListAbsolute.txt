@@ -3,9 +3,11 @@ C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.BusinessLayer\bin\Debug\Trend
 C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.BusinessLayer\bin\Debug\TrendOl.BusinessLayer.pdb
 C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.BusinessLayer\bin\Debug\EntityFramework.dll
 C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.BusinessLayer\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.BusinessLayer\bin\Debug\TrendOl.Common.dll
 C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.BusinessLayer\bin\Debug\TrendOl.DataAccessLayer.dll
 C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.BusinessLayer\bin\Debug\TrendOl.Entities.dll
 C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.BusinessLayer\bin\Debug\FakeData.dll
+C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.BusinessLayer\bin\Debug\TrendOl.Common.pdb
 C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.BusinessLayer\bin\Debug\TrendOl.DataAccessLayer.pdb
 C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.BusinessLayer\bin\Debug\TrendOl.DataAccessLayer.dll.config
 C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.BusinessLayer\bin\Debug\TrendOl.Entities.pdb

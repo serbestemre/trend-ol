@@ -7,13 +7,13 @@ section {
 
 	section .section-title {
 		text-align: center;
-		color: #007b5e;
+		color: #78e08f;
 		margin-bottom: 50px;
 		text-transform: uppercase;
 	}
 
 #footer {
-	background: #007b5e !important;
+	background: #78e08f !important;
 }
 
 	#footer h5 {

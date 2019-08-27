@@ -141,11 +141,13 @@ C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.WebApp\bin\System.Web.Webpage
 C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.WebApp\bin\System.Web.Webpages.dll
 C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.WebApp\bin\System.Web.Webpages.Razor.dll
 C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.WebApp\bin\TrendOl.BusinessLayer.dll
+C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.WebApp\bin\TrendOl.Common.dll
 C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.WebApp\bin\TrendOl.Entities.dll
 C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.WebApp\bin\TrendOl.DataAccessLayer.dll
 C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.WebApp\bin\FakeData.dll
 C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.WebApp\bin\TrendOl.BusinessLayer.pdb
 C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.WebApp\bin\TrendOl.BusinessLayer.dll.config
+C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.WebApp\bin\TrendOl.Common.pdb
 C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.WebApp\bin\TrendOl.Entities.pdb
 C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.WebApp\bin\EntityFramework.xml
 C:\Users\Emre\source\repos\TrendOlSolution\TrendOl.WebApp\bin\EntityFramework.SqlServer.xml

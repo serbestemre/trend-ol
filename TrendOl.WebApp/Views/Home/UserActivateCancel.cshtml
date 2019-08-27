@@ -1,0 +1,43 @@
+﻿@using TrendOl.Entities.Messages
+@model List<ErrorMessageObj>
+@{
+	ViewBag.Title = "UserActivateCancel";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+	<div class="col-md-4 offset-md-4">
+		<div class="card border-success">
+			<article class="card-body">
+				<h4 class="card-title text-center mb-4 mt-1 text-info">You are redirecting in 5 seconds...</h4>
+				<hr class="bg-danger">
+				<p class="text-danger text-center">
+					<i class="fas fa-user-times" style="color:#ff0000; font-size:30px;"></i>
+					Account is not valid
+				</p>
+				<div class="form-group">
+					<div class="input-group">
+						<p class="justify-content-center">
+							@foreach (ErrorMessageObj err in Model)
+							{
+								@err.Message <br />
+							}
+
+						</p>
+					</div> <!-- input-group.// -->
+				</div>
+			</article>
+		</div>
+	</div>
+</div>
+
+<script>
+	$(function () {
+		setTimeout(function () {
+			window.location = "/Home/Index";
+		}, 5000);
+	});
+</script>
+
+
+

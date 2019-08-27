@@ -1,0 +1,54 @@
+﻿@using TrendOl.WebApp.ViewModels
+@model WarningViewModel
+
+@{
+	ViewBag.Title = Model.Title;
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row">
+	<div class="col-md-4 offset-md-4">
+		<div class="card border-warning">
+			<article class="card-body">
+				<h4 class="card-title text-center mb-4 mt-1 text-info">
+					@Model.Header
+				</h4>
+				<hr class="bg-warning">
+				<p class="text-warning text-center" style="font-size:40px;">
+					<i class="fas fa-exclamation-triangle" style="font-size:30px;"></i>
+					@Model.Title
+				</p>
+				<div class="form-group">
+					<div class="input-group">
+						<p class="justify-content-center">
+							@foreach (string msg in Model.Items)
+							{
+								@msg<br />
+
+							}
+						</p>
+					</div> <!-- input-group.// -->
+				</div>
+			</article>
+		</div>
+	</div>
+</div>
+
+@{
+	string js = string.Empty;
+
+	if (Model.IsRedirecting)
+	{
+		js = "setTimeout(function () {window.location = '" + Model.RedirectingUrl + "'; }, " + Model.RedirectingTimeout + ");";
+	}
+}
+
+<script>
+	$(function () {
+
+		@Html.Raw(js);
+
+	});
+</script>
+

@@ -5,7 +5,9 @@ using System.Web;
 using System.Web.Mvc;
 using TrendOl.BusinessLayer;
 using TrendOl.Entities;
+using TrendOl.Entities.Messages;
 using TrendOl.Entities.ValueObjects;
+using TrendOl.WebApp.ViewModels;
 
 namespace TrendOl.WebApp.Controllers
 {
@@ -53,7 +55,6 @@ namespace TrendOl.WebApp.Controllers
 			return View(model);
 		}
 
-
 		public ActionResult Register()
 		{
 			return View();
@@ -66,6 +67,7 @@ namespace TrendOl.WebApp.Controllers
 			if (ModelState.IsValid)
 			{
 				MyUserManager myUserManager = new MyUserManager();
+				
 				BusinessLayerResult<MyUser> result = myUserManager.RegisterUser(model);
 
 				if (result.Errors.Count > 0)
@@ -75,9 +77,12 @@ namespace TrendOl.WebApp.Controllers
 				}
 
 
-				
+				OkViewModel notifyObj = new OkViewModel();
+				notifyObj.Title = "Registiration is Successfully Done!";
+				notifyObj.Items.Add("Please go to your e-mail address and activate your account by clicking the activation link.");
 
-				return RedirectToAction("RegisterOk");
+
+				return View("Ok",notifyObj);
 			}
 
 			// TODO List
@@ -88,22 +93,88 @@ namespace TrendOl.WebApp.Controllers
 
 			return View(model);
 		}
-
-
-		public ActionResult UserActivate(Guid activate_id)
+		public ActionResult UserActivate(Guid id)
 		{
 			//user activation
-			return View();
-		}
 
-		public ActionResult RegisterOk()
-		{
-			return View();
+			MyUserManager userManager = new MyUserManager();
+			BusinessLayerResult<MyUser> result = userManager.ActivateUser(id);
+
+			if (result.Errors.Count > 0)
+			{
+				ErrorViewModel errorNotifyObj = new ErrorViewModel()
+				{
+					Title = "Wrong Attempt",
+					Items = result.Errors,
+				};
+
+				return View("Error", errorNotifyObj);
+			}
+
+			OkViewModel okNotifyObj = new OkViewModel();
+			okNotifyObj.Title = "Account is Activated";
+			okNotifyObj.RedirectingUrl = "/Home/Login";
+			okNotifyObj.Items.Add("Welcome to TrendOl family. We wish you have great enjoy during the shopping!");
+
+			return View("Ok",okNotifyObj);
 		}
 
 		public ActionResult Logout()
 		{
+			Session.Clear();
+			return  RedirectToAction("Index");
+		}
+
+		public ActionResult ShowProfile()
+		{
+
+			MyUser currentUser = Session["login"] as MyUser;
+			MyUserManager myUserManager = new MyUserManager();
+			BusinessLayerResult<MyUser> res = myUserManager.GetUserById(currentUser.Id);
+
+			if (res.Errors.Count > 0)
+			{
+				ErrorViewModel errorNotifyObj = new ErrorViewModel()
+				{
+					Title = "Error Occurred",
+					Items = res.Errors
+				};
+				return View("Error", errorNotifyObj);
+				
+
+			}
+
+			return View(res.Result);
+		}
+
+		public ActionResult TestNotify()
+		{
+			ErrorViewModel model = new ErrorViewModel()
+			{
+				Header = "Yönlendirme..",
+				Title = "Error Test",
+				RedirectingTimeout = 7000,
+				Items = new List<ErrorMessageObj> { new ErrorMessageObj() { Message = "Test başarılı 1" }, new ErrorMessageObj() { Message = "Test başarılı 2" } }
+
+			};
+			return View("Error", model);
+		}
+
+		public ActionResult EditProfile()
+		{
+			return View();
+		}
+
+		[HttpPost]
+		public ActionResult EditProfile(MyUser user)
+		{
+			return View();
+		}
+
+		public ActionResult DeleteProfile()
+		{
 			return View();
 		}
 	}
+
 } 

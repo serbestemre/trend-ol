@@ -104,7 +104,14 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\categories.css" />
     <Content Include="Content\footer.css" />
+    <Content Include="Content\images\avatars\default_user_avatar.png" />
+    <Content Include="Content\images\avatars\female_user_avatar.png" />
+    <Content Include="Content\images\avatars\logo_placeholder.png" />
+    <Content Include="Content\images\avatars\male_user_avatar.png" />
+    <Content Include="Content\images\avatars\super_user_avatar.png" />
     <Content Include="Content\images\jumbotron.jpg" />
+    <Content Include="Content\images\jumbotron2.jpg" />
+    <Content Include="Content\images\jumbotron3.jpg" />
     <Content Include="Content\validation.css" />
     <Content Include="Content\shoppingItem.css" />
     <Content Include="Content\product.jpg" />
@@ -1688,14 +1695,6 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\customJS.js" />
-    <Content Include="Scripts\esm\popper-utils.js" />
-    <Content Include="Scripts\esm\popper-utils.min.js" />
-    <Content Include="Scripts\esm\popper.js" />
-    <Content Include="Scripts\esm\popper.min.js" />
-    <Content Include="Scripts\esm\popper.min.js.map" />
-    <Content Include="Scripts\esm\popper.js.map" />
-    <Content Include="Scripts\esm\popper-utils.min.js.map" />
-    <Content Include="Scripts\esm\popper-utils.js.map" />
     <Content Include="Content\fontawesome5.10\less\brands.less" />
     <Content Include="Content\fontawesome5.10\less\fontawesome.less" />
     <Content Include="Content\fontawesome5.10\less\regular.less" />
@@ -1750,6 +1749,14 @@
     <Content Include="Content\fontawesome5.10\webfonts\fa-solid-900.ttf" />
     <Content Include="Content\fontawesome5.10\webfonts\fa-solid-900.woff" />
     <Content Include="Content\fontawesome5.10\webfonts\fa-solid-900.woff2" />
+    <Content Include="Scripts\esm\popper-utils.js" />
+    <Content Include="Scripts\esm\popper-utils.min.js" />
+    <Content Include="Scripts\esm\popper.js" />
+    <Content Include="Scripts\esm\popper.min.js" />
+    <Content Include="Scripts\esm\popper.min.js.map" />
+    <Content Include="Scripts\esm\popper.js.map" />
+    <Content Include="Scripts\esm\popper-utils.min.js.map" />
+    <Content Include="Scripts\esm\popper-utils.js.map" />
     <Content Include="Scripts\bootstrap.min.js.map" />
     <Content Include="Scripts\bootstrap.js.map" />
     <Content Include="Scripts\bootstrap.bundle.min.js.map" />
@@ -1789,13 +1796,28 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Init\WebCommon.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\ErrorViewModel.cs" />
+    <Compile Include="ViewModels\InfoViewModel.cs" />
+    <Compile Include="ViewModels\NotifyViewBase.cs" />
+    <Compile Include="ViewModels\OkViewModel.cs" />
+    <Compile Include="ViewModels\WarningViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.1.min.map" />
+    <Content Include="Scripts\jquery-3.2.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.2.1.min.map" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_PartialFooter.cshtml" />
+    <Content Include="Views\Shared\_PartialCategories.cshtml" />
+    <Content Include="Views\Shopping\Shopping.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Home\Register.cshtml" />
+    <Content Include="Views\Home\ShowProfile.cshtml" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
     <Content Include="Scripts\umd\popper-utils.min.js.map" />
@@ -1805,15 +1827,10 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
-    <Content Include="Scripts\jquery-3.2.1.slim.min.map" />
-    <Content Include="Scripts\jquery-3.2.1.min.map" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Shared\_PartialFooter.cshtml" />
-    <Content Include="Views\Shared\_PartialCategories.cshtml" />
-    <Content Include="Views\Shopping\Shopping.cshtml" />
-    <Content Include="Views\Home\Login.cshtml" />
-    <Content Include="Views\Home\Register.cshtml" />
-    <Content Include="Views\Home\RegisterOk.cshtml" />
+    <Content Include="Views\Shared\Ok.cshtml" />
+    <Content Include="Views\Shared\Warning.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\Info.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1824,12 +1841,15 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TrendOl.BusinessLayer\TrendOl.BusinessLayer.csproj">
       <Project>{50a2060c-d3b1-4f1c-96c3-d9ac555a234c}</Project>
       <Name>TrendOl.BusinessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TrendOl.Common\TrendOl.Common.csproj">
+      <Project>{6dbd77e4-daaa-4f1f-8f26-426c51bd3eed}</Project>
+      <Name>TrendOl.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\TrendOl.Entities\TrendOl.Entities.csproj">
       <Project>{434ae1bb-c207-4d02-b412-5ea5e415fb95}</Project>

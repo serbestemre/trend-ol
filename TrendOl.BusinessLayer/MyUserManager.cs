@@ -7,6 +7,7 @@ using TrendOl.DataAccessLayer.EntityFramework;
 using TrendOl.Entities;
 using TrendOl.Entities.ValueObjects;
 using TrendOl.Entities.Messages;
+using TrendOl.Common.Helpers;
 
 namespace TrendOl.BusinessLayer
 {
@@ -34,7 +35,7 @@ namespace TrendOl.BusinessLayer
 			
 			}
 			else
-			{
+			{ // Create User Obj and Insert into DB
 				int dbResult = repo_user.Insert(new MyUser()
 				{
 					Username = data.Username,
@@ -43,8 +44,9 @@ namespace TrendOl.BusinessLayer
 					IsActive =false,
 					IsSuperUser=false,
 					HasBrand = false,
-					Name = "username",
+					Name = "name",
 					Surname = "surname",
+					UserImage = "default_user_avatar.png",
 					ActivateGuid = Guid.NewGuid(),
 					
 				
@@ -54,6 +56,12 @@ namespace TrendOl.BusinessLayer
 					layerResult.Result = repo_user.Find(x => x.Email == data.Email && x.Username == data.Username);
 
 					//TODO: send activation mail
+					string siteUri = ConfigHelper.Get<string>("SiteRootUri");
+					string activateUri = $"{siteUri}/Home/UserActivate/{layerResult.Result.ActivateGuid}";
+					string body = $"Hello {layerResult.Result.Username};<br><br>" +
+						$"Activate your account by clicking <a href='{activateUri}' target='_blank'>here</a>.";
+					MailHelper.SendMail(body, layerResult.Result.Email, "TrendOl Account Activation Code");
+
 
 				}
 
@@ -81,8 +89,46 @@ namespace TrendOl.BusinessLayer
 			return result;
 		}
 
+		public BusinessLayerResult<MyUser> ActivateUser(Guid activateId)
+		{
+			BusinessLayerResult<MyUser> result = new BusinessLayerResult<MyUser>();
+			result.Result = repo_user.Find(x => x.ActivateGuid == activateId);
 
+			if(result.Result != null)
+			{
+				if (result.Result.IsActive)
+				{
+					result.AddError(ErrorMessageCode.UserAlreadyActive, "The user is already activated.");
+					return result;
+				}
+
+				result.Result.IsActive = true;
+				repo_user.Update(result.Result);
+
+				return result;
+
+			}
+			else
+			{
+				result.AddError(ErrorMessageCode.ActivateIdDoesNotExist, "Ooops!! The user could not found!  ");
+
+			}
+			return result;
 		}
+
+		public BusinessLayerResult<MyUser> GetUserById(int Id)
+		{
+			BusinessLayerResult<MyUser> res = new BusinessLayerResult<MyUser>();
+			res.Result = repo_user.Find(x => x.Id == Id);
+
+			if(res.Result == null)
+			{
+				res.AddError(ErrorMessageCode.UserNotFound, "User not found!");
+			}
+			return res;
+			
+		}
+	}
 
 
 	}

@@ -31,7 +31,7 @@ namespace TrendOl.DataAccessLayer.EntityFramework
 				HasBrand = false,
 				Username = "eserbest",
 				Password = "123456",
-				UserImage = FakeData.NetworkData.GetDomain(),
+				UserImage = "super_user_avatar.png",
 				CreatedOn = DateTime.Now,
 				ModifiedOn = DateTime.Now,
 				ModifiedUsername = "system",
@@ -45,14 +45,25 @@ namespace TrendOl.DataAccessLayer.EntityFramework
 			//Creating 7 Admins (Brand Users)
 			for (int i = 0; i < 7; i++)
 			{
+				var gender = FakeData.BooleanData.GetBoolean() ? "Male" : "Female";
+				var avatar_url = "default_user_avatar";
+				if(gender == "Male")
+				{
+					avatar_url = "male_user_avatar.png";
+				}
+				else
+				{
+					avatar_url = "female_user_avatar.png";
+				}
+				
 				MyUser BrandUser = new MyUser()
 				{
 					Name = FakeData.NameData.GetFirstName(),
 					Surname = FakeData.NameData.GetSurname(),
 					Email = FakeData.NetworkData.GetEmail(),
 					Address = FakeData.PlaceData.GetAddress(),
-					Gender = FakeData.BooleanData.GetBoolean() ? "Male" : "Female",
-					UserImage = FakeData.NetworkData.GetDomain(),
+					Gender = gender,
+					UserImage = avatar_url,
 					ActivateGuid = Guid.NewGuid(),
 					IsActive = true,
 					IsSuperUser = false,
@@ -76,7 +87,7 @@ namespace TrendOl.DataAccessLayer.EntityFramework
 				Brand newBrand = new Brand()
 				{
 					BrandName = FakeData.NameData.GetCompanyName(),
-					BrandImage = "BrandImage.jpg",
+					BrandImage = "logo_placeholder.png",
 					Tag = FakeData.TextData.GetSentence(),
 					MyUser = item,
 					CreatedOn = DateTime.Now,
