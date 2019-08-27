@@ -10,5 +10,7 @@ namespace TrendOl.Entities.Messages
 		UserAlreadyActive = 154,
 		ActivateIdDoesNotExist = 155,
 		UserNotFound = 156,
+		ProfileCouldNotUpdated = 157,
+		UserCouldNotRemoved = 158,
 	}
 }

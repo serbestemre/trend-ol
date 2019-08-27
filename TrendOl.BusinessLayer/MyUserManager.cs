@@ -128,6 +128,69 @@ namespace TrendOl.BusinessLayer
 			return res;
 			
 		}
+
+		public BusinessLayerResult<MyUser> UpdateProfile(MyUser data)
+		{
+			MyUser db_user = repo_user.Find(x => x.Id != data.Id && (x.Username == data.Username || x.Email == data.Email));
+			BusinessLayerResult<MyUser> res = new BusinessLayerResult<MyUser>();
+
+			if(db_user != null && db_user.Id != data.Id)
+			{
+				if(db_user.Username == data.Username)
+				{
+					res.AddError(ErrorMessageCode.UsernameAlreadyExist, "Username is already Exists");
+				}
+				if(db_user.Email == data.Email)
+				{
+					res.AddError(ErrorMessageCode.EmailAlreadyExist, "E-mail is already exists");
+				}
+				return res;
+			}
+
+			res.Result = repo_user.Find(x => x.Id == data.Id);
+			res.Result.Name = data.Name;
+			res.Result.Surname = data.Surname;
+			res.Result.Email = data.Email;
+			res.Result.Password = data.Password;
+			res.Result.Username = data.Username;
+			res.Result.Gender = data.Gender;
+			res.Result.Address = data.Address;
+
+			if (string.IsNullOrEmpty(data.UserImage) == false)
+			{
+				res.Result.UserImage = data.UserImage;
+			}
+
+			if(repo_user.Update(res.Result)==0){
+				res.AddError(ErrorMessageCode.ProfileCouldNotUpdated, "Profile could not updated.");
+			}
+
+			return res;
+
+			
+		}
+
+		public BusinessLayerResult<MyUser> DeleteUserById(int Id)
+		{
+
+			MyUser db_user = repo_user.Find(x => x.Id == Id);
+			BusinessLayerResult<MyUser> res = new BusinessLayerResult<MyUser>();
+
+			if(db_user != null)
+			{
+				if (repo_user.Delete(db_user) == 0)
+				{
+					res.AddError(ErrorMessageCode.UserCouldNotRemoved, "The user could not removed!");
+					return res;
+				}
+
+			}
+			else
+			{
+				res.AddError(ErrorMessageCode.UserNotFound, "User could not found!");
+			}
+				return res;
+		}
 	}
 
 

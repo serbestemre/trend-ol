@@ -28,6 +28,7 @@ namespace TrendOl.WebApp.Controllers
 		{
 			return View();
 		}
+
 		[HttpPost]
 		public ActionResult Login(LoginViewModel model)
 		{
@@ -93,6 +94,7 @@ namespace TrendOl.WebApp.Controllers
 
 			return View(model);
 		}
+
 		public ActionResult UserActivate(Guid id)
 		{
 			//user activation
@@ -162,18 +164,91 @@ namespace TrendOl.WebApp.Controllers
 
 		public ActionResult EditProfile()
 		{
-			return View();
+
+
+			MyUser currentUser = Session["login"] as MyUser;
+			MyUserManager myUserManager = new MyUserManager();
+			BusinessLayerResult<MyUser> res = myUserManager.GetUserById(currentUser.Id);
+
+			if (res.Errors.Count > 0)
+			{
+				ErrorViewModel errorNotifyObj = new ErrorViewModel()
+				{
+					Title = "Error Occurred",
+					Items = res.Errors
+				};
+				return View("Error", errorNotifyObj);
+
+
+			}
+
+
+
+			return View(res.Result);
 		}
 
 		[HttpPost]
-		public ActionResult EditProfile(MyUser user)
+		public ActionResult EditProfile(MyUser model, HttpPostedFileBase UserImage)
 		{
-			return View();
+			ModelState.Remove("ModifiedUsername");
+			if (ModelState.IsValid)
+			{
+				if (UserImage != null && (
+				UserImage.ContentType == "image/jpeg" ||
+				UserImage.ContentType == "image/jpg" ||
+				UserImage.ContentType == "image/png"))
+				{
+					string filename = $"user_{ model.Id}.{ UserImage.ContentType.Split('/')[1]}";
+					UserImage.SaveAs(Server.MapPath($"~/images/avatars/{filename}"));
+					model.UserImage = filename;
+				}
+
+				MyUserManager userManager = new MyUserManager();
+				BusinessLayerResult<MyUser> res = userManager.UpdateProfile(model);
+
+				if (res.Errors.Count > 0)
+				{
+					ErrorViewModel errorNotifyObj = new ErrorViewModel()
+					{
+						Items = res.Errors,
+						Title = "Profile could not updated",
+						RedirectingUrl = "/Home/EditProfile"
+					};
+					return View("Error", errorNotifyObj);
+				}
+
+				Session["login"] = res.Result; // Session updated.
+
+
+
+				return RedirectToAction("ShowProfile");
+			}
+			else
+			{
+				return View(model);
+			}
 		}
+
 
 		public ActionResult DeleteProfile()
 		{
-			return View();
+			MyUser currentUser = Session["login"] as MyUser;
+			MyUserManager userManager = new MyUserManager();
+			BusinessLayerResult<MyUser> res = userManager.DeleteUserById(currentUser.Id);
+
+			if(res.Errors.Count > 0)
+			{
+				ErrorViewModel errorNotifyObj = new ErrorViewModel()
+				{
+					Items = res.Errors,
+					Title = "Profile could not deleted",
+					RedirectingUrl = "/Home/ShowProfile"
+				};
+				return View("Error", errorNotifyObj);
+			}
+			Session.Clear();
+
+			return RedirectToAction("Index");
 		}
 	}
 

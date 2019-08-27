@@ -104,14 +104,14 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\categories.css" />
     <Content Include="Content\footer.css" />
-    <Content Include="Content\images\avatars\default_user_avatar.png" />
-    <Content Include="Content\images\avatars\female_user_avatar.png" />
-    <Content Include="Content\images\avatars\logo_placeholder.png" />
-    <Content Include="Content\images\avatars\male_user_avatar.png" />
-    <Content Include="Content\images\avatars\super_user_avatar.png" />
-    <Content Include="Content\images\jumbotron.jpg" />
-    <Content Include="Content\images\jumbotron2.jpg" />
-    <Content Include="Content\images\jumbotron3.jpg" />
+    <Content Include="images\avatars\default_user_avatar.png" />
+    <Content Include="images\avatars\female_user_avatar.png" />
+    <Content Include="images\avatars\logo_placeholder.png" />
+    <Content Include="images\avatars\male_user_avatar.png" />
+    <Content Include="images\avatars\super_user_avatar.png" />
+    <Content Include="images\jumbotron.jpg" />
+    <Content Include="images\jumbotron2.jpg" />
+    <Content Include="images\jumbotron3.jpg" />
     <Content Include="Content\validation.css" />
     <Content Include="Content\shoppingItem.css" />
     <Content Include="Content\product.jpg" />
@@ -1831,6 +1831,7 @@
     <Content Include="Views\Shared\Warning.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\Info.cshtml" />
+    <Content Include="Views\Home\EditProfile.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
