@@ -15,84 +15,190 @@
 
 
 
-	<style>
-		.container {
-			max-width: inherit;
-		}
-	</style>
+	<link href="https://fonts.googleapis.com/css?family=Oswald:600&display=swap" rel="stylesheet">
+
+	@*<style>
+			.container {
+				max-width: inherit;
+			}
+		</style>*@
 
 
 
 </head>
 <body>
 	@{
-		MyUser user = null;
+		MyUser currentUser = null;
 		if (Session["login"] != null)
 		{
-			user = Session["login"] as MyUser;
+			currentUser = Session["login"] as MyUser;
 		}
 	}
 
-	<nav class="navbar navbar-expand-lg navbar-light" style="background-color:aliceblue;" >
-		<div class="container">
-			<a class="navbar-brand" href="#" style="font-size:30px; font-family: 'Saira Stencil One', cursive; "><b>Trend</b><i class="fas fa-globe-europe"></i><b>L</b></a>
-		</div>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navLinks" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<a class="navbar-brand" href="#" style="font-family: 'Oswald', sans-serif;">TrendOl</a>
+		
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 
-		<div class="flex-column">
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active">
+					@*<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>*@
+					@*@Html.ActionLink("Home", "Index", "Home", null, new { @class = "nav-link" })*@
+					<a class="nav-link" href="/Home/Index">
+						<i class="fas fa-home"></i>
+						&nbsp;Home
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/Shopping/Shopping">
+						<i class="fas fa-shopping-bag"></i>
+						&nbsp;Shopping
+					</a>
+				</li>
+			</ul>
 
-			<div class="collapse navbar-collapse flex-row" id="navLinks">
-				<ul class="navbar-nav mt-2 mt-lg-0 ml-auto">
-					@if (user == null)
-					{
-						<li class="nav-item">
-							@Html.ActionLink("Register", "Register", "Home", null, new { @class = "nav-link" })
-						</li>
 
-						<li class="nav-item">
-							@Html.ActionLink("Login", "Login", "Home", null, new { @class = "nav-link" })
-						</li>
-					}
-					else
-					{
-						<li class="nav-item">
-							<a class="nav-link" href="/Home/ShowProfile"><i class="fas fa-user-tie"></i> &nbsp; @user.Username</a>
-						</li>
+			@{
+				if (currentUser != null)
+				{
+					<ul class="navbar-nav mr-1 ">
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<i class="fas fa-user-tie"></i>&nbsp; @currentUser.Username
+							</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								@if (currentUser.IsSuperUser == true)
+								{
+									<a class="dropdown-item" href="#"><i class="fas fa-user-shield"></i>&nbsp;Admin Panel</a>
+								}
+								<div class="dropdown-divider"></div>
 
-						<li class="nav-item">
-							<a class="nav-link" href="/Home/Logout">Logout</a>
+								<a class="dropdown-item" href="@Url.Action("ShowProfile")"><i class="far fa-address-card"></i>&nbsp;Show Profile</a>
+								<a class="dropdown-item" href="@Url.Action("EditProfile")"><i class="fas fa-user-edit"></i>&nbsp;Edit Profile</a>
+								@if (currentUser.HasBrand == true)
+								{
+									<a class="dropdown-item" href="#"><i class="fas fa-users-cog"></i>&nbsp;Manage Brand</a>
+								}
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="@Url.Action("DeleteProfile")" onclick="return confirm('Are you sure about to delete this account?');">Delete Profile</a>
+
+							</div>
 						</li>
-					}
-				</ul>
-			</div>
-			<div class="collapse navbar-collapse flex-row" id="navLinks">
-				<ul class="navbar-nav mt-2 mt-lg-0 ml-auto flex-row">
-					<li class="nav-item active">
-						<a class="nav-link" href="@Url.Action("Index", "Home")">
-							<span class="sr-only">(current)</span>Home
+					</ul>
+				}
+			}
+
+			<ul class="navbar-nav">
+
+				@if (currentUser == null)
+				{
+					<li class="nav-item">
+						<a class="nav-link" href="/Home/Register">
+							<i class="fas fa-align-left"></i>
+							&nbsp;Register&nbsp;
 						</a>
 					</li>
-
 					<li class="nav-item">
-						@Html.ActionLink("Shopping", "Shopping", "Shopping", null, new { @class = "nav-link" })
+						<a class="nav-link" href="/Home/Login">
+							<i class="fas fa-sign-in-alt"></i>
+							&nbsp;Log-in&nbsp;
+						</a>
 					</li>
+				}
+				else
+				{
 					<li class="nav-item">
-						<a class="nav-link" href="#">About</a>
+						<a class="nav-link" href="/Home/Logout">
+							&nbsp;Log-out&nbsp;<i class="fas fa-sign-out-alt"></i>
+						</a>
 					</li>
-					
-				</ul>
-			</div>
+				}
 
+
+
+			</ul>
 		</div>
-
-
 	</nav>
 
 
 
-	@RenderBody()
+		@RenderBody()
+	
+
+
+
+
+
+
+
+
+
+
+
+	@*<nav class="navbar navbar-expand-lg navbar-light" style="background-color:aliceblue;" >
+			<div class="container">
+				<a class="navbar-brand" href="#" style="font-size:30px; font-family: 'Saira Stencil One', cursive; "><b>Trend</b><i class="fas fa-globe-europe"></i><b>L</b></a>
+			</div>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navLinks" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="flex-column">
+
+				<div class="collapse navbar-collapse flex-row" id="navLinks">
+					<ul class="navbar-nav mt-2 mt-lg-0 ml-auto">
+						@if (user == null)
+						{
+							<li class="nav-item">
+								@Html.ActionLink("Register", "Register", "Home", null, new { @class = "nav-link" })
+							</li>
+
+							<li class="nav-item">
+								@Html.ActionLink("Login", "Login", "Home", null, new { @class = "nav-link" })
+							</li>
+						}
+						else
+						{
+							<li class="nav-item">
+								<a class="nav-link" href="/Home/ShowProfile"><i class="fas fa-user-tie"></i> &nbsp; @user.Username</a>
+							</li>
+
+							<li class="nav-item">
+								<a class="nav-link" href="/Home/Logout">Logout</a>
+							</li>
+						}
+					</ul>
+				</div>
+				<div class="collapse navbar-collapse flex-row" id="navLinks">
+					<ul class="navbar-nav mt-2 mt-lg-0 ml-auto flex-row">
+						<li class="nav-item active">
+							<a class="nav-link" href="@Url.Action("Index", "Home")">
+								<span class="sr-only">(current)</span>Home
+							</a>
+						</li>
+
+						<li class="nav-item">
+							@Html.ActionLink("Shopping", "Shopping", "Shopping", null, new { @class = "nav-link" })
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">About</a>
+						</li>
+
+					</ul>
+				</div>
+
+			</div>
+
+
+		</nav>*@
+
+
+
+	
 
 
 </body>

@@ -14,9 +14,9 @@
 
 				<!-- User Avatar -->
 				<div class="col-md-3">
-					<img src="~/images/avatars/@(Model.UserImage)" class="rounded-circle shadow p-3 mb-5 bg-white rounded" width="200" height="200" />
+					<img src="~/images/avatars/@(Model.UserImage)" class="rounded-circle shadow p-1 mb-3 bg-white rounded" width="200" height="200" />
 					@Html.HiddenFor(model => model.UserImage)
-					<input type="file" name="UserImage" id="UserImage" class="form-control" style="width:250px;" /><br />
+					<input type="file" name="UserImage" id="UserImage" class="form-control p-0" style="width:250px;" /><br />
 					<i class="fas fa-info-circle"></i>
 					<i>Lütfen jpg, jpeg ya da png formatı kullanın.</i>
 				</div>
@@ -24,7 +24,7 @@
 
 				<!-- Inputs -->
 
-				<div class="col-md-5">
+				<div class="col-md-7">
 
 					<div class="form-horizontal">
 						@Html.ValidationSummary(false)

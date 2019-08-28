@@ -3,90 +3,57 @@
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
 <style>
-	.jumbotron{
-		margin-bottom:0px;
+	.jumbotron {
+		margin-bottom: 0px;
 	}
+
 	.jumbotronImage {
 		/*background-image: url('../../Content/images/jumbo.jpg');*/
-		
-		background-image: url('../../images/jumbotron.jpg');
+		background-image: url('../../images/fluid-jumbo.jpg');
 		background-size: cover;
-		color: wheat;
+		color: #000000;
 		background-position: center; /* Center the image */
 		background-repeat: no-repeat; /* Do not repeat the image */
 	}
 
 	.card {
-		background-color: white;
+		background-color: #ffffff;
 		border: none;
 	}
 
 	#cardRow {
-		background-color: white;
+		background-color: #ffffff;
 	}
 </style>
 
 
+<div class="jumbotron jumbotron-fluid jumbotronImage">
+	<div class="container">
+		<h1 class="display-4">TrendOl 2019 Creation</h1>
+		<p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+	</div>
 
-<div id="header" class="jumbotron jumbotronImage">
-	<h1 class="display-4">Trend Ol 2019</h1>
-	<p class="lead">
-		In malesuada semper mi, id sollicitudin urna fermentum ut fusce varius nisl.
-	</p>
-	<hr class="my-4">
-	<p>Best online shopping address</p>
-	@Html.ActionLink("Start Shopping", "Shopping", "Shopping", null, new { @class = "btn btn-light btn-lg" })
 
 </div>
-
-
-<div id="cardRow" class="container d-flex justify-content-center pt-1 ">
+<hr />
+<div class="container">
 	<div class="row">
-		<div class="card col-lg-4 col-sm-12 align-items-center pt-2 " style="width:18rem;">
-			<i class="fas fa-shopping-bag card-img-bottom" style="font-size:50px;color:#43A047;"></i>
-			<div class="card-body">
-				<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-			</div>
+		<div>
+			<h3 class="text-success">%50 Discount Opportunities</h3>
+			<hr />
+			<p class="text-body">
+				Aliquam sit amet justo nunc tempor, metus vel placerat suscipit, orci nisl iaculis eros, a tincidunt nisi odio eget lorem nulla condimentum tempor mattis ut vitae feugiat augue cras ut metus a risus iaculis scelerisque eu ac ante fusce non varius purus aenean nec magna felis fusce vestibulum velit mollis odio sollicitudin.
+			</p>
+			<h3 class="text-right text-primary">
+				Catch-Up Latest Trends
+			</h3>
+			<hr />
+			<p class="text-body">
+				Scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel placerat suscipit, orci nisl iaculis eros, a tincidunt nisi odio eget lorem nulla condimentum tempor mattis ut vitae feugiat augue.
+			</p>
 		</div>
-		<div class="card col-lg-4 col-sm-12 align-items-center pt-2" style="width: 18rem; ">
-			<i class="fas fa-user-plus card-img-bottom" style="font-size:50px; color:#43A047;"></i>
-
-			<div class="card-body">
-				<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-			</div>
-		</div>
-		<div class="card col-lg-4 col-sm-12 align-items-center pt-2" style="width: 18rem; ">
-			<i class="fas fa-money-check-alt  card-img-bottom" style="font-size:50px; color:#43A047;"></i>			<div class="card-body">
-				<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-			</div>
-		</div>
-	</div>
-</div>
-
-
-<div class="row d-flex justify-content-center">
-
-	<div class="container m-1 col-lg-5">
-		<h4>
-			Sit amet, consectetur.
-		</h4>
-
-		<p class="text-body">
-			Cras ut metus a risus iaculis scelerisque eu ac ante fusce non varius purus aenean nec magna felis fusce vestibulum velit mollis odio sollicitudin lacinia aliquam posuere, sapien elementum lobortis tincidunt, turpis dui ornare nisl, sollicitudin interdum turpis nunc eget sem nulla eu ultricies orci praesent id augue nec lorem pretium congue sit amet ac nunc fusce iaculis lorem eu diam hendrerit at mattis purus dignissim vivamus mauris tellus, fringilla vel dapibus a, blandit quis erat vivamus elementum aliquam luctus.
-		</p>
-	</div>
-
-	<div class="container m-1 col-lg-5">
-		<h4>
-			Consectetur adipiscing elit fusce vel.
-		</h4>
-
-		<p class="text-body">
-			Laoreet ac, aliquam sit amet justo nunc tempor, metus vel placerat suscipit, orci nisl iaculis eros, a tincidunt nisi odio eget lorem nulla condimentum tempor mattis ut vitae feugiat augue cras ut metus a risus iaculis scelerisque eu ac ante fusce non varius purus aenean nec magna felis fusce vestibulum.
-		</p>
 	</div>
 
 </div>
-
-@Html.Partial("_PartialFooter")
